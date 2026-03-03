@@ -1,8 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
@@ -15,19 +15,76 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={24} name="home" color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="challenges"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Challenges',
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={24} name="flag" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="upload"
+        options={{
+          title: 'Upload',
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={24} name="add-circle-outline" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="ledger"
+        options={{
+          title: 'Ledger',
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={24} name="wallet" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="transactions"
+        options={{
+          href: null,
+        }}
+      />
+
+      <Tabs.Screen
+        name="leaderboard"
+        options={{
+          title: 'Leaderboard',
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={24} name="trophy" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="friends"
+        options={{
+          href: null,
+        }}
+      />
+
+      <Tabs.Screen
+        name="settings"
+        options={{
+          href: null,
         }}
       />
     </Tabs>
